@@ -934,7 +934,7 @@ class Cerebro(with_metaclass(MetaParams, object)):
     broker = property(getbroker, setbroker)
 
     def plot(self, plotter=None, numfigs=1, iplot=True, start=None, end=None,
-             width=16, height=9, dpi=300, tight=True, use=None,
+             width=16, height=9, dpi=300, tight=True, use=None, show=False,
              **kwargs):
         '''
         Plots the strategies inside cerebro
@@ -993,7 +993,8 @@ class Cerebro(with_metaclass(MetaParams, object)):
 
                 figs.append(rfig)
 
-            plotter.show()
+            if show:
+                plotter.show()
 
         return figs
 
